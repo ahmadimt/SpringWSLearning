@@ -18,6 +18,8 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.6.RELEASE</spring.version>
+		<project.build.targetEncoding>UTF-8</project.build.targetEncoding>
+		<hibernate.version>4.3.9.Final</hibernate.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -61,8 +63,9 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-commons-core</artifactId>
-				<version>1.8.0.RELEASE</version>
+				<version>1.4.1.RELEASE</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
@@ -93,6 +96,34 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-expression</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			
+				<!-- Hibernate related dependencies -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-envers</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>4.2.0.Final</version>
+			</dependency>
+			<!-- Apache BDCP Connection Pool Dependency -->
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
