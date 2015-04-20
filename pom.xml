@@ -8,6 +8,9 @@
 	<name>TestWS</name>
 	<modules>
 		<module>TestWS-webservice</module>
+		<module>TestWS-service</module>
+		<module>TestWS-persistence</module>
+		<module>TestWS-web</module>
 	</modules>
 
 	<properties>
