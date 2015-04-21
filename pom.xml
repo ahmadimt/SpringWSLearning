@@ -97,8 +97,8 @@
 				<artifactId>spring-expression</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-			
-				<!-- Hibernate related dependencies -->
+
+			<!-- Hibernate related dependencies -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
@@ -117,7 +117,7 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
-				<version>4.2.0.Final</version>
+				<version>4.3.2.Final</version>
 			</dependency>
 			<!-- Apache BDCP Connection Pool Dependency -->
 			<dependency>
