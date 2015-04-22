@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.imt.test.persistence.config;
+package com.imt.test.ws.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-@ComponentScan(basePackages = "com.imt.test")
-public class PersistenceContext {
+@ComponentScan(basePackages = { "com.imt.test" })
+public class WebServiceContext {
 
 }
