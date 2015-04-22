@@ -178,6 +178,11 @@
 				<artifactId>jersey-client</artifactId>
 				<version>${jersey.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.glassfish.jersey.ext</groupId>
+				<artifactId>jersey-spring3</artifactId>
+				<version>${jersey.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.aspectj</groupId>
@@ -220,6 +225,15 @@
 				<artifactId>usertype.jodatime</artifactId>
 				<version>2.0.1</version>
 			</dependency>
+
+			<!-- Servlet Dependencies -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
 </project>
