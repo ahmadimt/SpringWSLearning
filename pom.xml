@@ -17,7 +17,7 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.version>4.0.5.RELEASE</spring.version>
 		<project.build.targetEncoding>UTF-8</project.build.targetEncoding>
 		<hibernate.version>4.3.9.Final</hibernate.version>
 		<jersey.version>2.17</jersey.version>
@@ -185,6 +185,12 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.glassfish.jersey.containers</groupId>
+				<artifactId>jersey-container-servlet-core</artifactId>
+				<version>${jersey.version}</version>
+			</dependency>
+			
+			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
 				<version>1.6.11</version>
@@ -231,9 +237,15 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.1.0</version>
+				<scope>provided</scope>
 			</dependency>
 
-
+			<!-- JSTL Dependencies -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
