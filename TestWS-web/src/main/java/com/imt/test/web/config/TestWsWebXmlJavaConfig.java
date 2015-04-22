@@ -7,10 +7,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-import org.glassfish.jersey.servlet.ServletContainer;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
 
 /**
  * @author imteyaza
@@ -37,16 +39,17 @@ public class TestWsWebXmlJavaConfig extends
 	@Override
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
-		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
-		context.register(WebMvcConfig.class);
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.setConfigLocation("com.imt.test");
+		//context.register(WebMvcConfig.class);
+		servletContext.addListener(new ContextLoaderListener(context));
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
 				"dispatcherServlet", new DispatcherServlet(context));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
-
 		ServletRegistration.Dynamic jesreyServlet = servletContext.addServlet(
-				"jerseyServlet", new ServletContainer());
+				"jerseyServlet", new SpringServlet());
 		jesreyServlet.setLoadOnStartup(1);
 		jesreyServlet.setInitParameter(
 				"com.sun.jersey.api.json.POJOMappingFeature", "true");

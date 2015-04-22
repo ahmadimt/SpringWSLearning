@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -35,6 +36,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 			DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
-	
+
+	@Bean
+	public ControllerClassNameHandlerMapping controllerClassNameHandlerMapping() {
+		ControllerClassNameHandlerMapping classNameHandlerMapping = new ControllerClassNameHandlerMapping();
+		return classNameHandlerMapping;
+
+	}
+
 }

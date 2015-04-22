@@ -52,22 +52,47 @@
 
 		<!-- Jersey Related Dependencies -->
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
+			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-common</artifactId>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
+			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet-core</artifactId>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-spring</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Servlet Dependencies -->
@@ -82,6 +107,8 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+
+
 
 	</dependencies>
 </project>
