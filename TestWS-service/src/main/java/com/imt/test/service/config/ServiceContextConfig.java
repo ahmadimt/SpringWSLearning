@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  *
  */
 @Configuration
-@ComponentScan(basePackages = "com.imt.test")
+@ComponentScan(basePackages = { "com.imt.test", "com.imt.test.persistence" })
 public class ServiceContextConfig {
 
 }
