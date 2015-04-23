@@ -3,9 +3,11 @@
  */
 package com.imt.test.web.config;
 
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "com.imt.test" })
+@PropertySource(value = { "application.properties" })
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
@@ -42,6 +45,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		ControllerClassNameHandlerMapping classNameHandlerMapping = new ControllerClassNameHandlerMapping();
 		return classNameHandlerMapping;
 
+	}
+
+	@Bean
+	public PropertyPlaceholderConfigurer configurer() {
+		PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
+		return configurer;
 	}
 
 }
