@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "com.imt.test" })
-@PropertySource(value = { "application.properties" })
+@PropertySource(value = { "classpath:application.properties" })
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
