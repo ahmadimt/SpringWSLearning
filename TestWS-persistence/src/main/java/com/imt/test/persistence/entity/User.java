@@ -4,6 +4,7 @@
 package com.imt.test.persistence.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User extends AbstractAuditableEntity {
 
+	@Id
 	private Long id;
 	private String firstName;
 	private String lastName;

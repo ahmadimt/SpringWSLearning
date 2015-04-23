@@ -88,6 +88,22 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
+		<!-- Apache BDCP Connection Pool Dependency -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+		</dependency>
+
+		<!-- JodaTime Dependencies -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.jodatime</artifactId>
+		</dependency>
+
 		<!-- Jackson Related Dependencies -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

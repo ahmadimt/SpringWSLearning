@@ -24,6 +24,12 @@
 	</build>
 
 	<dependencies>
+		<!-- Persistence Dependency -->
+		<dependency>
+			<groupId>com.imt.test</groupId>
+			<artifactId>TestWS-persistence</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- Spring Related Dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>

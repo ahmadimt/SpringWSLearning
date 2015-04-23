@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.5.RELEASE</spring.version>
 		<project.build.targetEncoding>UTF-8</project.build.targetEncoding>
-		<hibernate.version>4.3.9.Final</hibernate.version>
+		<hibernate.version>4.1.9.Final</hibernate.version>
 		<jersey.version>2.17</jersey.version>
 		<jackson.version>2.5.2</jackson.version>
 		<sun.jersey.version>1.9</sun.jersey.version>
@@ -98,8 +98,9 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
-				<version>1.4.1.RELEASE</version>
+				<version>1.6.0.RELEASE</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-envers</artifactId>
@@ -150,10 +151,11 @@
 			</dependency>
 			<!-- Apache BDCP Connection Pool Dependency -->
 			<dependency>
-				<groupId>commons-dbcp</groupId>
-				<artifactId>commons-dbcp</artifactId>
-				<version>1.4</version>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-dbcp2</artifactId>
+				<version>2.1</version>
 			</dependency>
+
 
 			<!-- MySQL Connector Dependency -->
 			<dependency>
@@ -163,7 +165,7 @@
 			</dependency>
 
 			<!-- Jersey Related Dependencies -->
-<dependency>
+			<dependency>
 				<groupId>com.sun.jersey</groupId>
 				<artifactId>jersey-server</artifactId>
 				<version>${sun.jersey.version}</version>
@@ -210,7 +212,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
@@ -268,7 +270,7 @@
 				<version>1.2</version>
 			</dependency>
 
-			
+
 
 		</dependencies>
 	</dependencyManagement>
