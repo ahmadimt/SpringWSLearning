@@ -2,8 +2,18 @@
     <wb-module deploy-name="TestWS-web">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
+        <dependent-module archiveName="TestWS-webservice-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/TestWS-webservice/TestWS-webservice">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TestWS-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/TestWS-service/TestWS-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="TestWS-persistence-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/TestWS-persistence/TestWS-persistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="TestWS-web"/>
         <property name="java-output-path" value="/TestWS-web/target/classes"/>
     </wb-module>
