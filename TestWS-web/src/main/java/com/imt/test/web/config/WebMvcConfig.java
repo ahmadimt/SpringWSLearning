@@ -3,11 +3,16 @@
  */
 package com.imt.test.web.config;
 
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -22,8 +27,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "com.imt.test" })
-@PropertySource(value = { "application.properties" })
+@PropertySource(value = { "classpath:application.properties" })
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+	@Autowired
+	private Environment environment;
 
 	@Bean
 	public ViewResolver getViewResolver() {
@@ -48,9 +56,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public PropertyPlaceholderConfigurer configurer() {
-		PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-		return configurer;
-	}
+	public PropertySourcesPlaceholderConfigurer configurer() {
+		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+		propertySourcesPlaceholderConfigurer
+				.setLocations(new Resource[] { new ClassPathResource(
+						"application.properties") });
+		return propertySourcesPlaceholderConfigurer;
 
+	}
 }

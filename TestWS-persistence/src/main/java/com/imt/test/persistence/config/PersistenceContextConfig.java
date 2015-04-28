@@ -9,12 +9,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -32,22 +32,28 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = { "com.imt.test" })
 @EnableTransactionManagement
 @EnableJpaRepositories("com.imt.test.persistence.repo")
-@PropertySource(value = { "application.properties" })
 public class PersistenceContextConfig {
+
+	@Autowired
+	private Environment environment;
 
 	@Value("${db.url}")
 	private String dbUrl;
 
-	@Bean
-	public DataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/imti");
-		//dataSource.setUrl(dbUrl);
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		return dataSource;
-	}
+	@Value("${db.driver}")
+	private String driverClass;
+
+	@Value("${db.username}")
+	private String dbUserName;
+
+	@Value("${db.password}")
+	private String password;
+
+	@Value("${hibernate.dialect}")
+	private String hibernateDialect;
+
+	@Value("${hibernate.ejb.naming_strategy}")
+	private String hibernateEjbNamingStrategy;
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -76,18 +82,20 @@ public class PersistenceContextConfig {
 
 	Properties jpaProperties() {
 		Properties prop = new Properties();
-		prop.setProperty("hibernate.hbm2ddl.auto", "update");
-		prop.setProperty("hibernate.dialect",
-				"org.hibernate.dialect.MySQL5Dialect");
+		prop.setProperty("hibernate.dialect", hibernateDialect);
 		prop.setProperty("hibernate.ejb.naming_strategy",
-				"org.hibernate.cfg.ImprovedNamingStrategy");
+				hibernateEjbNamingStrategy);
 		return prop;
 
 	}
 
 	@Bean
-	public PropertyPlaceholderConfigurer configurer() {
-		PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-		return configurer;
+	public DataSource dataSource() {
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName(driverClass);
+		dataSource.setUrl(dbUrl);
+		dataSource.setUsername(dbUserName);
+		dataSource.setPassword(password);
+		return dataSource;
 	}
 }
