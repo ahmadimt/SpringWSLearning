@@ -29,9 +29,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  */
 @Configuration
-@ComponentScan(basePackages = { "com.imt.test" })
+@ComponentScan(basePackages = { "com.imt.test.persistence" })
 @EnableTransactionManagement
-@EnableJpaRepositories("com.imt.test.persistence.repo")
+@EnableJpaRepositories(basePackages = { "com.imt.test.persistence.repo" })
 public class PersistenceContextConfig {
 
 	@Autowired

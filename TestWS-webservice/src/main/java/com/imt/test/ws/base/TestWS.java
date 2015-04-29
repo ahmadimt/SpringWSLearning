@@ -33,7 +33,7 @@ public class TestWS {
 
 	@Path("/index")
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON})
 	public @ResponseBody Response getHomePage(
 			@Context HttpServletRequest request) {
 
