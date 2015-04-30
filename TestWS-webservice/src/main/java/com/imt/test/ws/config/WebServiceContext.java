@@ -14,7 +14,7 @@ import com.imt.test.service.config.ServiceContextConfig;
  *
  */
 @Configuration
-@ComponentScan(basePackages = { "com.imt.test" })
+@ComponentScan(basePackages = { "com.imt.test.ws" })
 @Import(ServiceContextConfig.class)
 public class WebServiceContext {
 

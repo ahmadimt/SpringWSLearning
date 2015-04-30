@@ -1,15 +1,31 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+ 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+ 
 <html>
 <head>
-<title>Spittr</title>
-<link rel="stylesheet"
-type="text/css"
-href="<c:url value="/resources/style.css" />" >
+    <title>Spring MVC Hello World</title>
 </head>
+ 
 <body>
-<h1>Welcome to TestWS</h1>
-<a href="<c:url value="/spittles" />">Spittles</a> |
-<a href="<c:url value="/spitter/register" />">Register</a>
+    <h2><spring:message code="lbl.page" text="All Employees in System" /></h2>
+ 
+    <table border="1">
+        <tr>
+            <th><spring:message code="lbl.Id" text="Employee Id" /></th>
+            <th><spring:message code="lbl.firstName" text="First Name" /></th>
+            <th><spring:message code="lbl.lastName" text="Last Name" /></th>
+        </tr>
+        <c:forEach items="${employees}" var="employee">
+            <tr>
+                <td>${employee.id}</td>
+                <td>${employee.firstName}</td>
+                <td>${employee.lastName}</td>
+            </tr>
+        </c:forEach>
+    </table>
+ 
 </body>
 </html>
