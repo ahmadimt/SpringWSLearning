@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.imt.test.persistence.entity.User;
 import com.imt.test.service.base.UserService;
+import com.imt.test.service.impl.MessageSourceServiceImpl;
+import com.imt.test.service.util.ErrorMessageKey;
 
 /**
  * @author imteyaza
@@ -31,13 +33,22 @@ public class TestWS {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private MessageSourceServiceImpl messageSourceServiceImpl;
+
+	// private final String firstName = "label.firstName";
+
 	@Path("/index")
 	@GET
-	@Produces({MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_JSON })
 	public @ResponseBody Response getHomePage(
 			@Context HttpServletRequest request) {
 
 		List<User> users = userService.getUser();
+		String label = messageSourceServiceImpl.getMessage(ErrorMessageKey.FIRST_NAME, new Object[] {},request.getLocale());
+		if (users.isEmpty()) {
+			return Response.ok(label).build();
+		}
 
 		return Response.ok(users).build();
 	}
