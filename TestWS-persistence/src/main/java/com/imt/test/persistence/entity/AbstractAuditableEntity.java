@@ -15,7 +15,7 @@ import org.springframework.data.domain.Auditable;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.imt.test.persistence.util.Status;
+import com.imt.test.utility.util.Status;
 
 /**
  * @author imteyaza
