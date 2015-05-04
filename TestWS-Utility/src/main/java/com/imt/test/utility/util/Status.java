@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.imt.test.persistence.util;
+package com.imt.test.utility.util;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
